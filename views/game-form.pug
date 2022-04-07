@@ -1,0 +1,65 @@
+extends layout 
+
+block content 
+  - let imgSrc = game == undefined ? '/img/no-image.jpg' : game.cover_img ? `/img/${game.cover_img}` : '/img/no-image.jpg'
+  - let gameTitle = game ? game.title : ''
+  - let company = game ? game.company : ''
+  - let price = game ? game.price : ''
+  - let stock = game ? game.stock : ''
+  - let release = game ? game.release_date_form_value : ''
+  - let summary = game ? game.summary : ''
+
+  div.gfContainer
+    p(style='font-size: 1.5em; margin: 0;') Create a Game Page
+    form(action='' method='POST' enctype='multipart/form-data' style='position: relative;') 
+      div.imgUpload 
+        div(id='imgOutput' style=`margin-bottom: 10px; background-image: url(${imgSrc}); background-size: 150px 150px; width: 150px; height: 150px;`)
+        div
+          label(for="imgInp" title='Only .jpg, .png, .jpeg, and .gif extensions are accepted. Maximum file size: 500KB').upBtn Upload 
+          input(type="file" name='coverImage' id='imgInp' style='display: none;' accept='image/jpg, image/jpeg, image/png, image/gif')
+
+      div.gfG1
+        label(for="title").gfLbl Title: 
+        br
+        input(type="text" name='title' id='title' value=gameTitle required style='width: 223px' autocomplete='off').gfInp
+        br
+
+        label(for="company").gfLbl Company: 
+        br
+        input(type='text' name='company' id='company' value=company required style='width: 223px' autocomplete='off').gfInp 
+        br
+
+        label(for="price").gfLbl Price: 
+        input(type="number" name='price' id='price' value=price required style='width: 56px' autocomplete='off' min='0').gfInp
+
+        label(for="stock").gfLbl  Stock: 
+        input(type="number" name='stock' id='stock' value=stock required style='width: 57px' autocomplete='off' min='0').gfInp
+        br
+
+        label(for="release").gfLbl Release Date: 
+        input(type="date" name='release' id='release' value=release style='width: 52%' autocomplete='off').gfInp
+
+      div.gfG2
+        label(for="summary").gfLbl Summary: 
+        br
+        textarea(type="textarea" name='summary' id='summary' required autocomplete='off' style='width: 382px; margin-bottom: 5px').gfInp #{summary}
+
+        p(style='font-size: 0.9em; margin:0') Category: 
+        for cat in categories 
+          div.catGroup
+            input(type="checkbox" name='category' id=cat._id value=cat._id checked=cat.checked).gfInp
+            label(for=cat._id title=cat.description).gfLbl #{cat.name}
+        br 
+        label(for="adminPass" style='font-size: 0.9em') Admin Pass: 
+        br
+        input(type="password" name='pass' id='adminPass' style='width: 95.5%' required).gfInp
+        div(style='padding-right: 5px')
+          input(type="submit" value='Submit').subBtn
+
+        if (errors) 
+            p(style='margin: 10px 0 0 0;') Error(s):
+            ul(style='margin-top: 5px;')
+              each err in errors 
+                li(style='color: red; font-size: 0.9em; font-weight: normal;') #{err.msg}.
+
+  script(src='/javascripts/index.js')

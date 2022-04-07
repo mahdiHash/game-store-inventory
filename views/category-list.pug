@@ -1,0 +1,13 @@
+extends layout 
+
+block content 
+  div.clContainer
+    p(style='margin: 0 0 10px 0; font-size: 1.5em;') Categories 
+    a(href='/category/create').newBtn New
+    div.catG
+      ul 
+        each cat in categories 
+          li 
+            a(href=cat.url style='display: inline-block; font-size: 1em; margin-bottom: 5px') #{cat.name}
+        else 
+          li There are no categories.

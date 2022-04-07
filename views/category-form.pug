@@ -1,0 +1,36 @@
+extends layout 
+
+block content 
+  - let catName = category ? category.name : ''
+  - let catDesc = category ? category.description : ''
+  div.cfContainer 
+    p(style='text-align: center; font-size: 1.5em; margin: 0 0 10px 0') Create a Category
+    form(action='' method='POST')
+      label(for="name" style='font-size: 0.9em') Name:
+      br
+      input(type="text" name='name' id='name' value=catName style='width: 100%' autocomplete='off').gfInp
+      br
+
+      label(for='desc' style='font-size: 0.9em') Description: 
+      br
+      textarea(type="text" name='description' id='desc' style='width: 100%; min-height: 100px' autocomplete='off').gfInp #{catDesc}
+
+      label(for="adminPass" style='font-size: 0.9em') Admin Pass: 
+      br
+      input(type="password" name='pass' id='adminPass' style='width: 100%' required).gfInp
+      
+      // At the moment I'm working on this code, 
+      // there's just 1 minute to Iranian't new year: Nowruz (or maybe Nowrouz).
+      // I hope this year I make a good progress in programming
+      // and would be a great year for everybody.
+      // I feel good about this year. 
+      // Hope it gets real.
+
+      div(text-align='right')
+        input(type="submit" value="Submit").subBtn
+
+    if (errors) 
+      p(style='margin: 10px 0 0 0;') Error(s):
+      ul(style='margin-top: 5px;')
+        each err in errors 
+          li(style='color: red; font-size: 0.9em; font-weight: normal;') #{err.msg}

@@ -1,0 +1,18 @@
+extends layout 
+
+block content 
+  div.dgContainer 
+    p Delete Game: #{game.title} 
+    form(method='POST' action='')
+      p Do you really want to delete #{game.title}?
+      p There's no way back!
+      label(for="adminPass" style='font-size: 0.9em') Admin Pass: 
+      br
+      input(type="text" name='pass' id='adminPass' style='width: 90%' required).gfInp
+      input(name='gameId' type='hidden' value=game._id)
+      input(type='submit' value='Delete' style='position: relative; top: 0; left: 0').delBtn
+    if (errors) 
+        p(style='margin: 10px 0 0 0;') Error(s):
+        ul(style='margin-top: 5px;')
+          each err in errors 
+            li(style='color: red; font-size: 0.9em; font-weight: normal;') #{err.msg}

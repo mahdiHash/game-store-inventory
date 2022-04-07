@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    div.navbar
+      a(href='/').logo
+        img(src='/img/logo.png' alt='Draco').logoPic
+        span.harr Draco
+      div(style='position: absolute; right: 25px; top:28px;')
+        a(href='/game').navLink Games 
+        a(href='/category').navLink Categories 
+        a(href='/about').navLink About
+    block content

@@ -1,0 +1,26 @@
+extends layout 
+
+block content 
+  div.dcContainer 
+    p Delete Category: #{category.name} 
+    if (games.length > 0) 
+      p(style='font-weight: normal;') Please delete the following games before attempting to delete this category. 
+      ul 
+      each game in games 
+        li(style='margin-bottom: 10px; font-weight: normal;')
+          a(href=game.url) #{game.title} 
+    else 
+      p Do you really want to delete #{category.name} category?
+      p There's no way back! 
+      form(method='POST' action='')
+        label(for="adminPass" style='font-size: 0.9em') Admin Pass: 
+        br
+        input(type="text" name='pass' id='adminPass' style='width: 57%' required).gfInp
+        br 
+        input(name='categoryId' type='hidden' value=category._id)
+        input(type='submit' value='Delete' style='position: relative; left: 0;').delBtn
+    if (errors) 
+        p(style='margin: 10px 0 0 0;') Error(s):
+        ul(style='margin-top: 5px;')
+          each err in errors 
+            li(style='color: red; font-size: 0.9em; font-weight: normal;') #{err.msg}

@@ -1,0 +1,28 @@
+extends layout 
+
+block content 
+  div.cdContainer 
+    p(style='font-size: 1.2em; margin: 0; margin-bottom: 10px') Category: #{category.name}
+    a(href='/category/'+category._id+'/update' style='top: 3px; right: 10px').newBtn Update 
+    a(href='/category/'+category._id+'/delete').delBtn Delete 
+    p(style='font-size: 1.2em; margin: 0') Description: 
+    p(style='font-size: 1em; margin: 0 0 10px 0; width: 100; font-weight: normal') #{category.description} 
+
+    hr(style='height: 2px')
+
+    p(style='font-size: 1.2em; margin: 0; margin-bottom: 10px') Games: 
+    each game in games 
+      - let imgSrc = `/img/${game.cover_img}`
+      div(style='position: relative;')
+        div.gcdImg 
+          a(href=game.url style='display: inline-block')
+            img(src=imgSrc alt=game.title style='font-size: 0.7em; display: inline-block' width='150px' height='150px')
+        div.gtcdInfo
+          a(href=game.url style='display: inline-block; margin-bottom: 5px')
+            p(style='margin: 0; font-size: 1em;') #{game.title}
+          br 
+          p(style='margin: 0; font-size: 1em; display: inline-block; margin-bottom: 5px') Summary:
+          br 
+          p(style='margin: 0; font-size: 0.9em; font-weight: normal; max-height: 80px; overflow-y: scroll;') #{game.summary}
+    else 
+      p(style='margin: 0; font-size: 1em') There are no games with this category.

@@ -1,0 +1,20 @@
+extends layout 
+
+block content 
+  div.glContainer
+    p(style='font-size: 1.5em; margin: 0 0 15px 0; text-align: left;') Games
+    a(href='/game/create').newBtn New 
+    div
+      each game in games 
+        - let imgSrc = game.cover_img ? `/img/${game.cover_img}` : '/img/no-image.jpg'
+        a(href=game.url)
+          div.gInfo 
+            img(src=imgSrc alt=game.title style='font-size: 0.7em').gImg
+            p #{game.title} 
+            p Price: #{game.price}$
+            if (game.stock > 0) 
+              p(style='margin-bottom: 0') Stock: Available 
+            else 
+              p(style='margin-bottom: 0') Stock: Not Available 
+      else 
+        p There are no games :(

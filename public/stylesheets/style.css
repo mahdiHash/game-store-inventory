@@ -1,0 +1,304 @@
+html {
+  background-color: rgb(219, 237, 255);
+}
+
+body {
+  padding: 0;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+hr {
+  height: 3px;
+  border: none;
+  background-color: rgb(0, 51, 102);
+  color: rgb(0, 51, 102);
+}
+
+input,
+textarea {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+input:focus {
+  outline: none;
+}
+
+.harr {
+  font-family: 'Harrington';
+}
+
+.navbar {
+  width: 100%;
+  border-bottom: 4px solid rgb(0, 51, 102);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.logo {
+  position: relative;
+  left: 0;
+  font-size: 2em;
+}
+
+.logo span {
+  font-size: 1.2em;
+  position: absolute;
+  right: -150%;
+  top: -25px;
+  font-weight: normal;
+}
+
+.logoPic {
+  width: 70px;
+  height: 70px;
+}
+
+.navLink {
+  margin: 15px;
+  padding-bottom: 0;
+  position: relative;
+  right: 0;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.navLink:hover {
+  border-bottom: 2px solid rgb(0, 51, 102);
+}
+
+.hpContainer {
+  margin: auto;
+  margin-top: 200px;
+  text-align: center;
+}
+
+.goShopping {
+  font-size: 1.5em;
+  font-weight: bolder;
+}
+
+.goShopping:hover {
+  border-bottom: 2px solid rgb(0, 51, 102);
+}
+
+.aboutContainer {
+  margin: auto;
+  margin-top: 100px;
+  text-align: center;
+}
+
+.apLogo {
+  width: 300px;
+  height: 300px;
+}
+
+.apInfo {
+  font-size: 1.2em;
+  margin: 0;
+}
+
+.gfContainer {
+  margin: auto;
+  margin-top: 130px;
+  width: 400px;
+  text-align: center;
+  position: relative;
+}
+
+.imgUpload {
+  width: 150px;
+  padding: 10px;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.gfLbl {
+  font-size: 0.9em;
+}
+
+.gfInp {
+  border: 2px solid rgb(0, 51, 102);
+  border-radius: 8px;
+  background-color: transparent;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.upBtn {
+  border: 2px solid rgb(0, 123, 31);
+  border-radius: 8px;
+  background-color: rgb(134, 255, 165);
+  padding: 5px;
+  font-size: 0.9em;
+}
+
+.upBtn:hover {
+  cursor: pointer;
+}
+
+.rmBtn {
+  border: 2px solid rgb(155, 7, 8);
+  border-radius: 8px;
+  background-color: rgb(255, 169, 169);
+  padding: 5px;
+  font-weight: bold;
+  font-size: 0.9em;
+}
+
+.rmBtn:hover {
+  cursor: pointer;
+}
+
+.gfG1 {
+  width: 240px;
+  position: absolute;
+  right: -10px;
+  top: 10px;
+  text-align: left;
+}
+
+.gfG2 {
+  text-align: left;
+  width: 100%;
+  position: absolute;
+  top: 210px;
+  left: 10px;
+}
+
+.subBtn {
+  background-color: transparent;
+  border: 2px solid rgb(0, 51, 102);
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 0.9em;
+  padding: 5px;
+}
+
+.subBtn:hover {
+  cursor: pointer;
+}
+
+.catGroup {
+  margin-right: 10px;
+  text-align: left;
+  display: inline-block;
+}
+
+.cfContainer {
+  width: 300px;
+  text-align: left;
+  margin: auto;
+  margin-top: 150px;
+}
+
+.clContainer {
+  margin: auto;
+  margin-top: 150px;
+  text-align: left;
+  width: 250px;
+  position: relative;
+}
+
+.newBtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 0.9em;
+  padding: 5px;
+  border: 2px solid rgb(0, 51, 102);
+  border-radius: 8px;
+}
+
+.glContainer {
+  width: 1000px;
+  margin: auto;
+  margin-top: 100px;
+  position: relative;
+  text-align: center;
+}
+
+.gInfo {
+  display: inline-block;
+  width: 250px;
+  margin: 0 20px 40px 20px;
+  padding: 10px;
+  text-align: left;
+  border: 2px solid rgb(0, 51, 102);
+  border-radius: 8px;
+}
+
+.gInfo:hover {
+  cursor: pointer;
+}
+
+.gImg {
+  width: 250px;
+  height: 250px;
+}
+
+.cdContainer {
+  width: 800px;
+  position: relative;
+  margin: auto;
+  margin-top: 150px;
+  padding: 10px;
+  padding-bottom: 0;
+  /* border: 2px solid rgb(0, 51, 102);
+  border-radius: 8px; */
+}
+
+.gcdImg {
+  margin-bottom: 15px;
+  display: inline-block;
+}
+
+.gtcdInfo {
+  position: absolute;
+  width: 75%;
+  top: 10px;
+  left: 160px;
+}
+
+.delBtn {
+  border: 2px solid rgb(155, 7, 8);
+  border-radius: 8px;
+  background-color: rgb(255, 169, 169);
+  padding: 5px;
+  font-weight: bold;
+  font-size: 0.9em;
+  position: absolute;
+  top: 3px;
+  right: 80px;
+}
+
+.delBtn:hover {
+  cursor: pointer;
+}
+
+.gdT {
+  font-size: 0.9em;
+  margin: 0;
+}
+
+.dcContainer {
+  width: 36%;
+  margin: auto;
+  margin-top: 150px;
+}
+
+.dgContainer {
+  width: 27%;
+  margin: auto;
+  margin-top: 150px;
+}
+

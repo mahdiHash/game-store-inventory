@@ -1,0 +1,41 @@
+extends layout 
+
+block content 
+  - let imgSrc = game.cover_img ? `/img/${game.cover_img}` : '/img/no-image.jpg'
+
+  div.gfContainer
+    p(style='font-size: 1.4em; margin: 0 0 0 8px; text-align: left;') Game Page
+    a(href='/game/'+game._id+'/update' style='top: 1px; right: 10px').newBtn Update 
+    a(href='/game/'+game._id+'/delete' style='top: 1px').delBtn Delete 
+    div(style='position: relative;') 
+      div.imgUpload 
+        img(src=imgSrc, alt="cover-image" width='150px' height='150px')
+        div
+      
+      div.gfG1
+        p(style='margin-bottom: 15px; display: inline-block;').gdT Title: 
+        span(style='font-weight: normal').gdT  #{game.title}
+        br
+        p(style='margin-bottom: 15px; display: inline-block;').gdT Company: 
+        span(style='font-weight: normal').gdT  #{game.company}
+        br
+        p(style='margin-bottom: 15px; display: inline-block;').gdT Price: 
+        span(style='font-weight: normal').gdT  #{game.price}$
+        br
+        p(style='margin-bottom: 15px; display: inline-block').gdT  Stock: 
+        span(style='font-weight: normal').gdT  #{game.stock}
+        br
+        p(style='display: inline-block').gdT Release Date: 
+        span(style='font-weight: normal').gdT  #{game.release_date_formatted}
+
+      div(style='top: 170px').gfG2
+        p.gdT Summary: 
+        p(style='width: 382px; margin-bottom: 10px; font-weight: normal').gdT #{game.summary}
+
+        p.gdT Category: 
+        each cat,index in game.category 
+          a(href=cat.url style='font-weight: normal').gdT #{cat.name}
+          if (index != game.category.length - 1)
+            span , 
+        else 
+          p(style='font-weight: normal').gdT This game has no category.
