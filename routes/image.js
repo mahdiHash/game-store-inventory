@@ -24,6 +24,9 @@ router.get('/:imgName', (req, res, next) => {
 
   // if the user stops page loading, delete the created file
   req.on('close', () => {
+    temp.close((err) => {
+      if (err) next(err); 
+    });
     fs.rm(dir, (err) => {
       if (err) next(err);
     });
